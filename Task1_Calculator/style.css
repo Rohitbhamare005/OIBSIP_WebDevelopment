@@ -9,9 +9,11 @@ body {
 }
 
 .container {
-    background: #d6e0ea;
+    background: rgba(255, 255, 255, 0.2);
     padding: 25px;
     border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
 .calculator {
@@ -21,13 +23,19 @@ body {
 #display {
     width: 100%;
     height: 60px;
-    font-size: 24px;
+    font-size: 26px;
     text-align: right;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 10px;
     margin-bottom: 15px;
-    background: #b7c8d8;
+    background: rgba(255,255,255,0.5);
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+#display:focus {
+    outline: none;
 }
 
 .buttons {
@@ -40,17 +48,41 @@ button {
     padding: 15px;
     font-size: 18px;
     border: none;
-    border-radius: 10px;
-    background: #a9c0d8;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.6);
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
-
 button:hover {
-    background: #8aa9c7;
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.9);
 }
 
 button:nth-child(4n) {
-    background: #7fa8cc;
+    background: #4facfe;
     color: white;
+}
+button:active {
+    transform: scale(0.95);
+}
+.equal {
+    background: #00c6ff;
+    color: white;
+    grid-column: span 2;
+    box-shadow: 0 0 10px #00c6ff;
+}
+.calculator {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
