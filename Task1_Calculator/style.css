@@ -86,3 +86,32 @@ button:active {
         transform: translateY(0);
     }
 }
+.toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dark {
+    background: #1e1e2f;
+    color: white;
+}
+
+.dark .container {
+    background: rgba(0,0,0,0.5);
+}
+
+.dark button {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+#history {
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 14px;
+    margin-bottom: 10px;
+}

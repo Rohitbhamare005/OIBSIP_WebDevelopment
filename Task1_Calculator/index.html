@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<button class="toggle" onclick="toggleTheme()">🌙</button>
 <div class="container">
     <div class="calculator">
         <input type="text" id="display" disabled>
-
+        <div id="history"></div>
         <div class="buttons">
             <button onclick="clearDisplay()">AC</button>
             <button onclick="deleteLast()">DEL</button>
