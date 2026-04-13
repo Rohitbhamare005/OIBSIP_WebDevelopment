@@ -40,9 +40,16 @@ function displayTasks() {
         let li = document.createElement("li");
 
         li.innerHTML = `
-            <span onclick="toggleTask(${index})" class="${task.completed ? 'completed' : ''}">
-                ${task.text}
-            </span>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <input type="checkbox" 
+                       ${task.completed ? "checked" : ""} 
+                       onchange="toggleTask(${index})">
+
+                <span class="${task.completed ? 'completed' : ''}">
+                    ${task.text}
+                </span>
+            </div>
+
             <button onclick="deleteTask(${index})">X</button>
         `;
 

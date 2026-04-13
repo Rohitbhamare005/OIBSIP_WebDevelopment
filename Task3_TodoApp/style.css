@@ -56,4 +56,39 @@ li {
 .completed {
     text-decoration: line-through;
     opacity: 0.6;
+}li {
+    margin-top: 10px;
+    padding: 12px;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+li:hover {
+    transform: scale(1.02);
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #4facfe;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #3b8de3;
 }
