@@ -1,58 +1,80 @@
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let filter = "all";
 
-function saveTasks() {
+function save() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function addTask() {
-    let input = document.getElementById("taskInput");
-    let text = input.value.trim();
+    let text = document.getElementById("taskInput").value;
+    let date = document.getElementById("dueDate").value;
+    let priority = document.getElementById("priority").value;
 
-    if (text === "") return;
+    if (!text) return;
 
-    tasks.push({ text: text, completed: false });
-    input.value = "";
-    saveTasks();
+    tasks.push({
+        text,
+        date,
+        priority,
+        completed: false
+    });
+
+    save();
     displayTasks();
 }
 
-function displayTasks(filter = "all") {
+function displayTasks() {
     let list = document.getElementById("taskList");
+    let search = document.getElementById("search").value.toLowerCase();
     list.innerHTML = "";
 
-    tasks.forEach((task, index) => {
+    let completed = 0;
 
-        if (filter === "completed" && !task.completed) return;
-        if (filter === "pending" && task.completed) return;
+    tasks.forEach((t, i) => {
+
+        if (filter === "completed" && !t.completed) return;
+        if (filter === "pending" && t.completed) return;
+        if (!t.text.toLowerCase().includes(search)) return;
+
+        if (t.completed) completed++;
 
         let li = document.createElement("li");
+        li.className = t.priority.toLowerCase();
 
         li.innerHTML = `
-            <span onclick="toggleTask(${index})" class="${task.completed ? 'completed' : ''}">
-                ${task.text}
-            </span>
-            <button class="delete" onclick="deleteTask(${index})">X</button>
+            <div onclick="toggle(${i})" class="${t.completed ? 'completed' : ''}">
+                ${t.text}<br>
+                <small>${t.date || ""} | ${t.priority}</small>
+            </div>
+            <button onclick="del(${i})">X</button>
         `;
 
         list.appendChild(li);
     });
+
+    document.getElementById("stats").innerText =
+        `Total: ${tasks.length} | Done: ${completed}`;
 }
 
-function toggleTask(index) {
-    tasks[index].completed = !tasks[index].completed;
-    saveTasks();
+function toggle(i) {
+    tasks[i].completed = !tasks[i].completed;
+    save();
     displayTasks();
 }
 
-function deleteTask(index) {
-    tasks.splice(index, 1);
-    saveTasks();
+function del(i) {
+    tasks.splice(i, 1);
+    save();
     displayTasks();
 }
 
-function filterTasks(type) {
-    displayTasks(type);
+function setFilter(f) {
+    filter = f;
+    displayTasks();
 }
 
-// INITIAL LOAD
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+
 displayTasks();
