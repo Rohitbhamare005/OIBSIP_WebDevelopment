@@ -1,73 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tribute to Dr. APJ Abdul Kalam</title>
+    <title>Tribute to APJ Abdul Kalam</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2>Kalam Tribute 🇮🇳</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#timeline">Timeline</a>
+    </div>
+</nav>
+
 <div class="container">
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <div class="hero">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/A._P._J._Abdul_Kalam.jpg">
+        <img src="img/kalam1.jpg">
         <h1>Dr. A.P.J Abdul Kalam</h1>
         <p>Missile Man of India 🇮🇳</p>
     </div>
 
     <!-- ABOUT -->
-    <div class="section">
+    <div class="section" id="about">
         <h2>About</h2>
         <p>
-            Dr. Avul Pakir Jainulabdeen Abdul Kalam was an Indian aerospace scientist and the 11th President of India.
-            He was widely known as the "Missile Man of India" for his work on the development of ballistic missile and
-            launch vehicle technology. His humble personality and dedication towards students made him one of the most
-            loved presidents in India.
+            Dr. APJ Abdul Kalam was an Indian aerospace scientist and the 11th President of India.
+            He inspired millions with his vision, humility, and dedication to education.
         </p>
     </div>
 
-    <div class="section">
-    <h2>Gallery</h2>
+    <!-- GALLERY SLIDER -->
+    <div class="section" id="gallery">
+        <h2>Gallery</h2>
 
-    <img class="slide active" src="img/kalam1.jpg">
-<img class="slide" src="img/kalam2.jpg">
-<img class="slide" src="img/kalam3.jpg">
-<img class="slide" src="img/kalam4.jpg">
-<img class="slide" src="img/kalam5.jpg">
-
-</div>
+        <div class="slider">
+            <img class="slide active" src="img/kalam1.jpg">
+            <img class="slide" src="img/kalam2.jpg">
+            <img class="slide" src="img/kalam3.jpg">
+            <img class="slide" src="img/kalam4.jpg">
+            <img class="slide" src="img/kalam5.jpg">
+        </div>
+    </div>
 
     <!-- TIMELINE -->
-    <div class="section">
+    <div class="section" id="timeline">
         <h2>Life Timeline</h2>
         <ul class="timeline">
-            <li><strong>1931:</strong> Born in Rameswaram, Tamil Nadu</li>
-            <li><strong>1960:</strong> Graduated in Aerospace Engineering</li>
-            <li><strong>1980:</strong> Led India's SLV-III project</li>
-            <li><strong>1998:</strong> Key role in Pokhran-II nuclear tests</li>
+            <li><strong>1931:</strong> Born in Rameswaram</li>
+            <li><strong>1960:</strong> Aerospace Engineering</li>
+            <li><strong>1980:</strong> SLV-III project</li>
+            <li><strong>1998:</strong> Pokhran-II tests</li>
             <li><strong>2002–2007:</strong> President of India</li>
-            <li><strong>2015:</strong> Passed away while delivering a lecture</li>
         </ul>
-    </div>
-
-    <!-- ACHIEVEMENTS -->
-    <div class="section">
-        <h2>Major Achievements</h2>
-        <ul>
-            <li>Developed India's first Satellite Launch Vehicle (SLV-III)</li>
-            <li>Chief architect of India's missile programs</li>
-            <li>Awarded Bharat Ratna</li>
-            <li>Inspired millions of youth</li>
-        </ul>
-    </div>
-
-    <!-- MISSILE MAN SECTION -->
-    <div class="section highlight">
-        <h2>Why "Missile Man of India"?</h2>
-        <p>
-            Dr. Kalam earned the title "Missile Man of India" for his significant contributions to the development of
-            ballistic missile technology, including projects like Agni and Prithvi missiles.
-        </p>
     </div>
 
     <!-- QUOTE -->
@@ -79,6 +68,8 @@
     </div>
 
 </div>
+
 <script src="script.js"></script>
+
 </body>
 </html>
