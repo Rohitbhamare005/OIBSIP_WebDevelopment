@@ -6,19 +6,17 @@ function save() {
 }
 
 function addTask() {
-    let text = document.getElementById("taskInput").value;
-    let date = document.getElementById("dueDate").value;
-    let priority = document.getElementById("priority").value;
+    let input = document.getElementById("taskInput");
+    let text = input.value.trim();
 
-    if (!text) return;
+    if (text === "") return;
 
     tasks.push({
-        text,
-        date,
-        priority,
+        text: text,
         completed: false
     });
 
+    input.value = "";
     save();
     displayTasks();
 }
@@ -26,55 +24,51 @@ function addTask() {
 function displayTasks() {
     let list = document.getElementById("taskList");
     let search = document.getElementById("search").value.toLowerCase();
+
     list.innerHTML = "";
 
-    let completed = 0;
+    let completedCount = 0;
 
-    tasks.forEach((t, i) => {
+    tasks.forEach((task, index) => {
 
-        if (filter === "completed" && !t.completed) return;
-        if (filter === "pending" && t.completed) return;
-        if (!t.text.toLowerCase().includes(search)) return;
+        if (filter === "completed" && !task.completed) return;
+        if (filter === "pending" && task.completed) return;
+        if (!task.text.toLowerCase().includes(search)) return;
 
-        if (t.completed) completed++;
+        if (task.completed) completedCount++;
 
         let li = document.createElement("li");
-        li.className = t.priority.toLowerCase();
 
         li.innerHTML = `
-            <div onclick="toggle(${i})" class="${t.completed ? 'completed' : ''}">
-                ${t.text}<br>
-                <small>${t.date || ""} | ${t.priority}</small>
-            </div>
-            <button onclick="del(${i})">X</button>
+            <span onclick="toggleTask(${index})" class="${task.completed ? 'completed' : ''}">
+                ${task.text}
+            </span>
+            <button onclick="deleteTask(${index})">X</button>
         `;
 
         list.appendChild(li);
     });
 
     document.getElementById("stats").innerText =
-        `Total: ${tasks.length} | Done: ${completed}`;
+        `Total: ${tasks.length} | Done: ${completedCount}`;
 }
 
-function toggle(i) {
-    tasks[i].completed = !tasks[i].completed;
+function toggleTask(index) {
+    tasks[index].completed = !tasks[index].completed;
     save();
     displayTasks();
 }
 
-function del(i) {
-    tasks.splice(i, 1);
+function deleteTask(index) {
+    tasks.splice(index, 1);
     save();
     displayTasks();
 }
 
-function setFilter(f) {
-    filter = f;
+function setFilter(type) {
+    filter = type;
     displayTasks();
 }
 
-function toggleTheme() {
-    document.body.classList.toggle("dark");
-}
-
+// initial load
 displayTasks();

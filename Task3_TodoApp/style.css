@@ -1,97 +1,59 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: Arial;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* DARK MODE */
-.dark {
-    background: #121212;
-    color: white;
-}
-
-/* APP */
 .app {
-    width: 420px;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(12px);
+    background: white;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* HEADER */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* INPUT */
 .input-box {
     display: flex;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 10px;
 }
 
-input, select {
+input {
+    flex: 1;
     padding: 8px;
-    border-radius: 8px;
-    border: none;
 }
 
 button {
     padding: 8px;
-    border-radius: 8px;
+    cursor: pointer;
     border: none;
     background: #4facfe;
     color: white;
-    cursor: pointer;
 }
 
-/* SEARCH */
-#search {
-    width: 100%;
+.filters {
     margin-top: 10px;
+    text-align: center;
 }
 
-/* TASK */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 li {
-    background: white;
     margin-top: 10px;
     padding: 10px;
-    border-radius: 10px;
+    background: #f0f0f0;
     display: flex;
     justify-content: space-between;
-    animation: fadeIn 0.3s;
-}
-
-.dark li {
-    background: #222;
+    border-radius: 8px;
 }
 
 .completed {
     text-decoration: line-through;
     opacity: 0.6;
-}
-
-/* PRIORITY COLORS */
-.high { border-left: 5px solid red; }
-.medium { border-left: 5px solid orange; }
-.low { border-left: 5px solid green; }
-
-/* STATS */
-.stats {
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1;}
 }
