@@ -1,7 +1,7 @@
 # OIBSIP Internship - Web Development 🚀
 
 ## 👨‍💻 Name: Rohit Bhamare
-## 📧 Email: (your email)
+## 📧 Email: (rohitsbhamare05@gmail.com)
 
 ---
 
